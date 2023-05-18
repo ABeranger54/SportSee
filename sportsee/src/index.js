@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Profile from './page/Profile';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Profile />
+    <Router>
+      <Routes>
+        <Route path="/:id" element={<Profile />} />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 

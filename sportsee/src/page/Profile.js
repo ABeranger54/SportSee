@@ -1,14 +1,24 @@
 import '../style/Profile.css';
-import {useEffect, useState} from 'react';
-import {FetchData, yes} from '../fetchUtils'
+import { useParams } from 'react-router-dom';
+import {FetchData} from '../fetchUtils'
+import Activity from '../component/Activity';
 
 function Profile() {
-  const data = FetchData("/user/12/performance/");
-
+  const {id} = useParams();
+  const data = FetchData("/user/" + id);
   console.log(data);
 
+  if(!data){
+      return (
+        <main id="notFound">Cet utilisateur n'existe pas.</main>
+      )
+  }
+
   return (
-    <main>{JSON.stringify(data)}</main>
+    <main>
+      {JSON.stringify(data)}
+      {/* <Activity id={id} /> */}
+    </main>
   )
 }
 
