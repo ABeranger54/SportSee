@@ -1,0 +1,17 @@
+.custom-tooltip{
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.custom-tooltip p{
+    margin: 15px 15px;
+}
+
+#barChart{
+    background-color: #fbfbfb;
+    display: inline-block;
+    padding: 20px;
+    border-radius: 10px;
+}
