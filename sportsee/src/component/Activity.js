@@ -17,7 +17,7 @@ function Activity(props) {
     
     return (
       <div id="barChart">
-      <BarChart width={730} height={320} data={data.sessions} >
+      <BarChart width={835} height={320} data={data.sessions} >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
           <XAxis dataKey="day" tickLine={false} tickMargin={20} height={40} />
           <YAxis orientation="right" axisLine={false} tickLine={false} tickMargin={20} />
@@ -35,7 +35,7 @@ function Activity(props) {
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="custom-tooltip">
+      <div className="performance-tooltip">
         <p>{payload[0].value + "kg"}</p>
         <p>{payload[1].value + "Kcal"}</p>
       </div>

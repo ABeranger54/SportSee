@@ -1,5 +1,5 @@
 import '../style/AverageSessions.css';
-import {AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip} from 'recharts'
+import {AreaChart, Area, XAxis, YAxis, Tooltip} from 'recharts'
 import {FetchData} from '../fetchUtils'
 import {useEffect, useState} from 'react';
 
@@ -22,17 +22,28 @@ function AverageSessions(props) {
 
     return (
       <div id="areaChart">
-        <AreaChart width={280} height={280} data={data.sessions} margin={{ top: 0, right: 0, left: 5, bottom: 0 }}>
+        <AreaChart width={260} height={260} data={data.sessions} margin={{ top: 0, right: 0, left: 5, bottom: 0 }}>
           <XAxis dataKey="day" axisLine={false} tickLine={false} stroke="#e1e1e1" />
           <YAxis hide={true} domain={[minVal, maxVal + maxVal ]} />
-          <CartesianGrid strokeDasharray="3 3" vertical={false} horizontal={false} />
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />
           <Area type="basis" dataKey="sessionLength" stroke="white" strokeWidth={3} fillOpacity={1} fill="transparent" />
-          <text x="25" y="40" textAnchor="left" dominantBaseline="left" fill="#e1e1e2" style={{fontSize: "20px"}}>Durée moyenne des sessions</text>
+          <text x="30" y="40" width={40} textAnchor="left" dominantBaseline="left" fill="#e1e1e2" style={{fontSize: "18px"}}>Durée moyenne des</text>
+          <text x="30" y="60" width={40} textAnchor="left" dominantBaseline="left" fill="#e1e1e2" style={{fontSize: "18px"}}>sessions</text>
         </AreaChart>
       </div>
     );
   }
 }
+
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="sessions-tooltip">
+        <p>{payload[0].value + " min"}</p>
+      </div>
+    );
+  }
+  return null;
+};
 
 export default AverageSessions;

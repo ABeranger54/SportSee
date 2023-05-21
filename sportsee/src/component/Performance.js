@@ -1,40 +1,30 @@
-import '../style/AverageSessions.css';
-import {RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend} from 'recharts'
+import '../style/Performance.css';
+import {RadarChart, PolarGrid, PolarAngleAxis, Radar} from 'recharts'
 import {FetchData} from '../fetchUtils'
 import {useEffect, useState} from 'react';
 
 function Performance(props) {
     const [data, setData] = useState();
     useEffect(() => {
-    FetchData("/user/" + props.id + "/performance").then(data => {
-        setData(data.data);
+    FetchData("/user/" + props.id + "/performance").then(res => {
+        setData(res.data);
     })
   },[])
   if(data){
-    //var kind = data.kind;
-    //var res = data.data;
-    //var resData = res;
-
-    //resData.map(e => e.kind = kind[e.kind]);
-    
-    // resData.forEach((e, i) => {
-    //     const kindString = kind[res[i].kind];
-    //     console.log(kindString);
-    //     e.kind = kindString;
-    //     console.log(e.kind);
-    // });
-
-    // console.log(resData);
-
-    data.data.map((e, i) => e.kind = data.kind[i + 1]);
+    const kindNames = data.kind;
+    var res = data.data;
+    var resData = res.map(item => {
+      return {...item, kind: kindNames[item.kind]}
+    });
 
     return (
-        <RadarChart outerRadius={90} width={730} height={250} data={data.data}>
-            <PolarGrid />
-            <PolarAngleAxis dataKey="kind" />
-            <PolarRadiusAxis angle={30} domain={[0, 1]} />
-            <Radar name="" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+      <div id="performance">
+        <RadarChart outerRadius={90} width={260} height={260} data={resData}>
+            <PolarGrid radialLines={false} />
+            <PolarAngleAxis dataKey="kind" tick={{ fill: "white", fontSize: 14 }} />
+            <Radar name="" dataKey="value" fill="#ff0000" fillOpacity={0.7} />
         </RadarChart>
+      </div>
     );
   }
 }

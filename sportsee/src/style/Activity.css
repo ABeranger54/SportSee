@@ -1,11 +1,11 @@
-.custom-tooltip{
+.performance-tooltip{
     background-color: red;
     color: white;
     text-align: center;
     padding: 10px 0;
 }
 
-.custom-tooltip p{
+.performance-tooltip p{
     margin: 15px 15px;
 }
 
