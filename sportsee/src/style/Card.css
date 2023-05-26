@@ -1,0 +1,19 @@
+.card{
+    display: flex;
+    background-color: #FBFBFB;
+    width: 194px;
+    height: 60px;
+    padding: 32px;
+    border-radius: 5px;
+}
+
+.card h2, .card p{
+    margin: 0;
+}
+
+.card .icon{
+    width: 20px;
+    height: 20px;
+    padding: 22px;
+    margin-right: 32px;
+}

@@ -22,7 +22,7 @@ function Activity(props) {
           <XAxis dataKey="day" tickLine={false} tickMargin={20} height={40} />
           <YAxis orientation="right" axisLine={false} tickLine={false} tickMargin={20} />
           <Tooltip content={<CustomTooltip />} />
-          <Legend layout="horizontal" verticalAlign="top" align="right" iconType="circle" iconSize="8" wrapperStyle={{paddingBottom: "30px", paddingRight: "15px"}} />
+          <Legend layout="horizontal" verticalAlign="top" align="right" iconType="circle" iconSize="8" wrapperStyle={{paddingBottom: "30px", paddingRight: "15px"}} formatter={(value, entry, index) => <span className="legendText">{value}</span>} />
           <Bar dataKey="kilogram" fill="#1e1e1e" name="Poids (kg)" radius={[100, 100, 0, 0]} barSize={8} />
           <Bar dataKey="calories" fill="#ff0000" name="Calories brûlées (kCal)" radius={[100, 100, 0, 0]} barSize={8} />
           <text x="25" y="25" textAnchor="left" dominantBaseline="left">Activité quotidienne</text>

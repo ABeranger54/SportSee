@@ -1,0 +1,38 @@
+body{
+    overflow: hidden;
+}
+
+aside{
+    float: left;
+    background-color: black;
+    width: 117px;
+    height: 1000px;
+    text-align: center;
+}
+
+aside nav{
+    margin-top: 22vh;
+}
+
+aside nav img{
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+aside p{
+    color: white;
+    margin-top: 100px;
+    writing-mode: sideways-lr;
+    margin-left: 40%;
+    font-size: 14px;
+}
+
+@media only screen and (max-height: 860px) {
+    aside nav{
+        margin-top: 18vh;
+    }
+    
+    aside p{
+        margin-top: 60px;
+    }
+  }

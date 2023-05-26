@@ -1,0 +1,31 @@
+header{
+    height: 91px;
+    background-color: black;
+    display: flex;
+}
+
+header img{
+    height: 60px;
+    margin: 17px 25px;
+}
+
+header nav{
+    width: 100%;
+    margin-left: 6%;
+    margin-right: 30px;
+}
+
+header nav ul{
+    font-size: 25px;
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li{
+    width: 100%;
+}
+
+header nav ul li a{
+    color: white;
+    text-decoration: none;
+}
