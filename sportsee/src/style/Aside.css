@@ -3,8 +3,8 @@ body{
 }
 
 aside{
-    float: left;
     background-color: black;
+    min-width: 117px;
     width: 117px;
     height: 1000px;
     text-align: center;

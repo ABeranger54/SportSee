@@ -5,3 +5,58 @@
     text-align: center;
     font-size: 30px;
 }
+
+#content{
+    width: 90%;
+}
+
+#name{
+    display: flex;
+}
+
+main{
+    display: flex;
+}
+
+#title{
+    margin-left: 5%;
+}
+
+#title p{
+  font-size: 35px;
+  margin-bottom: 0;
+}
+
+#title #highlight{
+    color: red;
+    margin-left: 10px;
+}
+
+#title #desc{
+    font-size: 20px;
+}
+
+#rechartsContainer{
+    display: flex;
+    margin-top: 50px;
+    gap: 7%;
+    justify-content: center;
+    width: 100%;
+}
+
+#left{
+    width: 70%;
+}
+
+#left>div{
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+#right{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 30%;
+}

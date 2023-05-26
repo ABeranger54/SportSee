@@ -5,14 +5,12 @@ import Profile from './page/Profile';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './component/Header';
-import Aside from './component/Aside'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-      <Header />
-      <Aside />
+     <Header />
       <Routes>
         <Route path="/:id" element={<Profile />} />
       </Routes>

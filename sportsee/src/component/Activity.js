@@ -1,5 +1,5 @@
 import '../style/Activity.css';
-import {BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar} from 'recharts'
+import {BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer} from 'recharts'
 import {FetchData} from '../fetchUtils'
 import {useEffect, useState} from 'react';
 
@@ -16,8 +16,8 @@ function Activity(props) {
     });
     
     return (
-      <div id="barChart">
-      <BarChart width={835} height={320} data={data.sessions} >
+      <ResponsiveContainer id="barChart" width="100%" height={280}>
+      <BarChart data={data.sessions} >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
           <XAxis dataKey="day" tickLine={false} tickMargin={20} height={40} />
           <YAxis orientation="right" axisLine={false} tickLine={false} tickMargin={20} />
@@ -27,7 +27,7 @@ function Activity(props) {
           <Bar dataKey="calories" fill="#ff0000" name="Calories brûlées (kCal)" radius={[100, 100, 0, 0]} barSize={8} />
           <text x="25" y="25" textAnchor="left" dominantBaseline="left">Activité quotidienne</text>
       </BarChart>
-      </div>
+      </ResponsiveContainer>
     );
   }
 }
