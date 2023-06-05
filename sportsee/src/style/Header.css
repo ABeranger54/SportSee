@@ -29,3 +29,18 @@ header nav ul li a{
     color: white;
     text-decoration: none;
 }
+
+@media only screen and (max-width: 1550px) {
+    header{
+        height: 70px;
+    }
+
+    header img{
+        height: 50px;
+        margin: 10px 25px;
+    }
+
+    header nav ul{
+        margin: 15px 0;
+    }
+}

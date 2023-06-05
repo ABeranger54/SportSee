@@ -35,4 +35,11 @@ aside p{
     aside p{
         margin-top: 60px;
     }
-  }
+}
+
+@media only screen and (max-width: 1550px) {
+    aside{
+        width: 80px;
+        min-width: 80px;
+    }
+}

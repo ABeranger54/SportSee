@@ -43,8 +43,10 @@ function Profile() {
         
         <div id="rechartsContainer">
           <div id="left">
-            <Activity id={id} />
-            <div style={{marginTop: "20px"}}>
+            <div id="activityContainer">
+              <Activity id={id} />
+            </div>
+            <div style={{marginTop: "20px", height: "30vh"}}>
               <AverageSessions id={id} />
               <Performance id={id} />
               <Score id={id}/>

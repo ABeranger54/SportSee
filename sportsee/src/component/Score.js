@@ -1,5 +1,5 @@
 import '../style/Score.css';
-import {RadialBarChart, RadialBar, PolarAngleAxis} from 'recharts'
+import {Cell, ResponsiveContainer, PieChart, Pie} from 'recharts'
 import {FetchData} from '../fetchUtils'
 import {useEffect, useState} from 'react';
 
@@ -11,20 +11,24 @@ function Score(props) {
     })
   },[])
   if(data){
-    const val = [{ score: data.score, fill: 'red' }];
+    var values = [{"value": data.score}, {"value": 1 - data.score}];
+    const COLORS = ['#ff0000', '#fbfbfb'];
     
     return (
-      <div id="score">
-        <div id="scoreCircle"></div>
-        <RadialBarChart width={260} height={260} data={val} cx={130} cy={130} innerRadius={90} outerRadius={90} barSize={10} startAngle={90} endAngle={-270} >
-          <PolarAngleAxis type="number" domain={[0, 1]} angleAxisId={0} tick={false} />
-          <RadialBar dataKey="score" cornerRadius={100} />
-          <text x="25" y="35" textAnchor="left" dominantBaseline="left">Score</text>
-          <text x="130" y="120" textAnchor="middle" dominantBaseline="middle" style={{fontSize: "25px"}} fill="#282D30">{val[0].score * 100 + "%"}</text>
-          <text x="130" y="150" textAnchor="middle" dominantBaseline="middle" style={{fontSize: "18px"}} fill="#74798C">de votre</text>
-          <text x="130" y="170" textAnchor="middle" dominantBaseline="middle" style={{fontSize: "18px"}} fill="#74798C">objectif</text>
-        </RadialBarChart>
-      </div>
+        <ResponsiveContainer id="score">
+          <PieChart>
+            <Pie data={[{"value": 1}]} dataKey="value" cx="50%" cy="50%" outerRadius={80} fill="#ffffff" />
+            <Pie data={values} dataKey="value" cx="50%" cy="50%" innerRadius={80} outerRadius={93}>
+              {
+                values.map((entry, index) => <Cell key={index} fill={COLORS[index]}/>)
+              }
+            </Pie>
+            <text x="25" y="35" textAnchor="left" dominantBaseline="left">Score</text>
+            <text x="50%" y="47%" textAnchor="middle" dominantBaseline="middle" style={{fontSize: "25px"}} fill="#282D30">{data.score * 100 + "%"}</text>
+            <text x="50%" y="56%" textAnchor="middle" dominantBaseline="middle" style={{fontSize: "18px"}} fill="#74798C">de votre</text>
+            <text x="50%" y="63%" textAnchor="middle" dominantBaseline="middle" style={{fontSize: "18px"}} fill="#74798C">objectif</text>
+          </PieChart>
+        </ResponsiveContainer>
     );
   }
 }

@@ -16,7 +16,7 @@ function Activity(props) {
     });
     
     return (
-      <ResponsiveContainer id="barChart" width="100%" height={280}>
+      <ResponsiveContainer id="barChart" width="100%" height="100%">
       <BarChart data={data.sessions} >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
           <XAxis dataKey="day" tickLine={false} tickMargin={20} height={40} />

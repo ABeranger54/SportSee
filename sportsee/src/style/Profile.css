@@ -39,13 +39,14 @@ main{
 #rechartsContainer{
     display: flex;
     margin-top: 50px;
-    gap: 7%;
+    gap: 4%;
     justify-content: center;
     width: 100%;
 }
 
 #left{
     width: 70%;
+    height: 65vh;
 }
 
 #left>div{
@@ -58,5 +59,66 @@ main{
     display: flex;
     flex-direction: column;
     gap: 40px;
-    width: 30%;
+    width: 20%;
 }
+
+#activityContainer{
+    height: 25vh;
+    margin-bottom: 5vh;
+    background-color: #fbfbfb;
+    padding: 20px;
+}
+
+@media only screen and (max-width: 1550px) {
+    #title p{
+      font-size: 25px;
+    }
+
+    #title #desc{
+        font-size: 15px;
+        margin: 0;
+    }
+
+    #rechartsContainer{
+        gap: 2%;
+    }
+
+    #left>div{
+        gap: 1%;
+    }
+    
+    #performance .recharts-polar-angle-axis-tick .recharts-polar-angle-axis-tick-value{
+        font-size: 10px;
+    }
+
+    /* #rechartsContainer{
+        margin-top: 30px;
+        flex-direction: column;
+    }
+
+    #right{
+        flex-direction: row;
+        width: 90%;
+        gap: 7%;
+        margin-left: 5%;
+    }
+
+    #left{
+        width: 95%;
+        margin: 0 3%;
+    }
+
+    #activityContainer{
+        height: 20vh;
+    } */
+  }
+
+  @media only screen and (max-width: 1200px) {
+    #left{
+        width: 80%;
+    }
+
+    #right{
+        width: 15%;
+    }
+  }
