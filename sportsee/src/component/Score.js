@@ -4,12 +4,13 @@ import {FetchData} from '../fetchUtils'
 import {useEffect, useState} from 'react';
 
 function Score(props) {
-    const [data, setData] = useState();
-    useEffect(() => {
-    FetchData("/user/" + props.id).then(data => {
-      setData(data.data);
+  const [data, setData] = useState();
+  useEffect(() => {
+    FetchData("/user/" + props.id).then(res => {
+      setData(res.data);
     })
   },[])
+  
   if(data){
     var values = [{"value": data.score}, {"value": 1 - data.score}];
     const COLORS = ['#ff0000', '#fbfbfb'];

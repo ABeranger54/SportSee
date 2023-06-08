@@ -4,12 +4,13 @@ import {FetchData} from '../fetchUtils'
 import {useEffect, useState} from 'react';
 
 function Performance(props) {
-    const [data, setData] = useState();
-    useEffect(() => {
+  const [data, setData] = useState();
+  useEffect(() => {
     FetchData("/user/" + props.id + "/performance").then(res => {
         setData(res.data);
     })
   },[])
+  
   if(data){
     const kindNames = data.kind;
     var res = data.data;

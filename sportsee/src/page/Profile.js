@@ -18,8 +18,9 @@ function Profile() {
   const [data, setData] = useState();
   const {id} = useParams();
   useEffect(() => {
-    FetchData("/user/" + id).then(data => {
-      setData(data.data);
+    FetchData("/user/" + id).then(res => {
+      console.log(res);
+      setData(res.data);
     })
   },[])
 

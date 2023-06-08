@@ -4,12 +4,13 @@ import {FetchData} from '../fetchUtils'
 import {useEffect, useState} from 'react';
 
 function AverageSessions(props) {
-    const [data, setData] = useState();
-    useEffect(() => {
-    FetchData("/user/" + props.id + "/average-sessions").then(res => {
+  const [data, setData] = useState();
+  useEffect(() => {
+  FetchData("/user/" + props.id + "/average-sessions").then(res => {
       setData(res.data);
     })
   },[])
+
   if(data){
     const daysLabel = ["L", "M", "M", "J", "V", "S", "D"];
     var minVal = -1;
